@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>National Incident-Based Reporting System (NIBRS) Data: A Practitioner’s Guide</title>
   <meta name="description" content="This is a comprehensive guide to using the FBI’s National Incident-Based Reporting System (NIBRS) Data, an incident-level dataset which provides detailed information on every crime reported to the police, including victim and offender traits and characteristics of the crime." />
-  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
   <meta property="og:title" content="National Incident-Based Reporting System (NIBRS) Data: A Practitioner’s Guide" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Jacob Kaplan" />
 
 
-<meta name="date" content="2022-08-23" />
+<meta name="date" content="2023-02-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -101,7 +101,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -114,7 +114,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -278,7 +278,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="header">
 <h1 class="title">National Incident-Based Reporting System (NIBRS) Data: A Practitioner’s Guide</h1>
 <p class="author"><em>Jacob Kaplan</em></p>
-<p class="date"><em>2022-08-23</em></p>
+<p class="date"><em>2023-02-28</em></p>
 </div>
 <div id="preface" class="section level1 hasAnchor" number="1">
 <h1><span class="header-section-number">Chapter 1</span> Preface<a href="index.html#preface" class="anchor-section" aria-label="Anchor link to header"></a></h1>
@@ -316,15 +316,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">1.5</span> Sources of NIBRS data<a href="index.html#sources-of-nibrs-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>There are a few different sources of NIBRS data available today. First, and probably most commonly used, is the data put together by the <a href="https://www.icpsr.umich.edu/web/pages/NACJD/index.html">National Archive of Criminal Justice Data (NACJD)</a>). This a team out of the University of Michigan who manages a huge number of criminal justice datasets and makes them available to the public. If you have any questions about crime data - NIBRS or other crime data - I highly recommend you reach out to them for answers. They are extremely helpful and can likely quickly answer any question that you have. They have a collection of data and excellent documentation available for NIBRS data available on their site <a href="https://www.icpsr.umich.edu/web/NACJD/series/128">here</a>. They’ve also put together what they call “Extract Files” which are where they merged some of the NIBRS segments together, saving you the effort of doing so yourself. These extract files essentially take every potential unit of analysis - incident, victim, offender, and arrestee (some crimes have no victims, only arrestees) - and merge it with the segment which has info about the incident such as the time of day or the outcome, and information about the reporting agency. NACJD only has data through 2016 which means that the most recent years (NIBRS data is available through 2019) of data are (as of this writing) unavailable.</p>
 <p>Next, and most usable for the general public - but limited for researchers - is the FBI’s official website <a href="https://crime-data-explorer.fr.cloud.gov/">Crime Data Explorer</a>. On this site you can chose an agency and see annual crime data (NIBRS data is at the hourly-level so this is very aggregated data) for certain crimes (and not even all the crimes actually available in the data). This site has only a small subset of the available data and is already aggregated so you’re dealing with a subset of data in a unit of analysis that you may not want. For example, this site lets you see the annual age of offenders for certain crimes in age brackets such as aged 20-29. NIBRS data provides the exact age (in years) of each offender so this website is much less useful than the full data. The crimes on this site are also limited to only the eight “Index Crimes” (murder, rape, robbery, aggravated assault, arson, burglary, theft, and motor vehicle theft) so are only a tiny share of the crimes actually reported in NIBRS data. For more on what Index Crimes are, please see <a href="https://ucrbook.com/ucrGeneral.html#indexCrimes">here</a>. This data source is potentially okay for the general public but only provides a fraction of the data available in the actual data so is really not good for researchers.</p>
-<p>Finally, I have my own collection of UCR data <a href="https://doi.org/10.3886/E118281V4">available freely and publicly on openICPSR</a>, a site which allows people to submit their data for public access. For each of these datasets I’ve taken the raw data from the FBI and read it into R. Since the data is only available from the FBI as fixed-width ASCII files, I created a setup file (we’ll explain exactly how reading in this kind of data works in the next chapter) and read the data into R and saved the files in R and Stata files for easy use. The main advantage is that all my data has standard variable names and column names and can be read into modern programming languages R and Stata (this is also true of recent NACJD years, but early years come as fixed-width ASCII files). The downside is that I don’t provide documentation other than what’s on the openICPSR page (and in this book) and only provide data in R and Stata format so people using languages such as SAS or SPSS cannot use this data.<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a></p>
 <div id="where-to-find-the-data-used-in-this-book" class="section level3 hasAnchor" number="1.5.1">
 <h3><span class="header-section-number">1.5.1</span> Where to find the data used in this book<a href="index.html#where-to-find-the-data-used-in-this-book" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>The data I am using in this book is the cleaned and concatenated data that I put together from the raw data that the FBI releases. The raw data that the FBI releases is available <a href="https://crime-data-explorer.fr.cloud.gov/pages/downloads">here</a>. The data that I have released is available on the data hosting site openICPSR <a href="https://doi.org/10.3886/E118281V4">here</a>. I am hosting this book through GitHub which has a maximum file size allowed that is far smaller than these data (which are millions of rows long and can get quite large), so you’ll need to go to openICPSR to download the data; it’s not available through this book’s GitHub repo.</p>
+<p>The data I am using in this book is the cleaned and concatenated data that I put together from the raw data that the FBI releases. The raw data that the FBI releases is available <a href="https://crime-data-explorer.fr.cloud.gov/pages/downloads">here</a>. I am hosting this book through GitHub which has a maximum file size allowed that is far smaller than these data (which are millions of rows long and can get quite large), so the raw data is not available to download.</p>
 </div>
 </div>
 <div id="recommended-reading" class="section level2 hasAnchor" number="1.6">
 <h2><span class="header-section-number">1.6</span> Recommended reading<a href="index.html#recommended-reading" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>While this book is designed to help researchers use this data, the FBI has an excellent manual on this data designed to help police agencies submit their data and users understand it. That manual, called the “2019 National Incident-Based Reporting System User Manual” provides excellent definitions and examples of many variables included in the data. In this book when I quote the FBI, such as defining a crime, I quote from this manual. The manual is available to download as a PDF on the FBI’s site and I’ve also posted it on my GitHub page in case the FBI ever takes down the PDF.<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a> The link on my GitHub page is <a href="https://github.com/jacobkap/nibrsbook/blob/main/2019-nibrs-user-manual-v-1.0.pdf">here</a>. I highly recommend that you read this manual before using the data. That manual, alongside this book, which tries to explain when and how the agencies don’t follow the manual, will provide a solid foundation for your understanding of NIBRS data.</p>
+<p>While this book is designed to help researchers use this data, the FBI has an excellent manual on this data designed to help police agencies submit their data and users understand it. That manual, called the “2019 National Incident-Based Reporting System User Manual” provides excellent definitions and examples of many variables included in the data. In this book when I quote the FBI, such as defining a crime, I quote from this manual. The manual is available to download as a PDF on the FBI’s site and I’ve also posted it on my GitHub page in case the FBI ever takes down the PDF.<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a> The link on my GitHub page is <a href="https://github.com/jacobkap/nibrsbook/blob/main/2019-nibrs-user-manual-v-1.0.pdf">here</a>. I highly recommend that you read this manual before using the data. That manual, alongside this book, which tries to explain when and how the agencies don’t follow the manual, will provide a solid foundation for your understanding of NIBRS data.</p>
 </div>
 <div id="how-to-contribute-to-this-book" class="section level2 hasAnchor" number="1.7">
 <h2><span class="header-section-number">1.7</span> How to contribute to this book<a href="index.html#how-to-contribute-to-this-book" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -347,8 +346,7 @@ Figure 1.1: The edit button for how to make edits of this book.
 <li id="fn2"><p>There is a small amount of information available for property theft victims, but not enough to do these kinds of victimization rate calculations<a href="index.html#fnref2" class="footnote-back">↩︎</a></p></li>
 <li id="fn3"><p>Writing also keeps away the boredom.<a href="index.html#fnref3" class="footnote-back">↩︎</a></p></li>
 <li id="fn4"><p>Though given that the data is fairly complicated and requires good programming knowledge, the bar is higher to use it. So there are far fewer bad uses of this data than there is for UCR data.<a href="index.html#fnref4" class="footnote-back">↩︎</a></p></li>
-<li id="fn5"><p>I am not sure if SAS or SPSS can read in R or Stata data files.<a href="index.html#fnref5" class="footnote-back">↩︎</a></p></li>
-<li id="fn6"><p>This is far more likely to happen as a result of standard government changing a site and forgetting to update the link rather than intentionally making the manual unavailable.<a href="index.html#fnref6" class="footnote-back">↩︎</a></p></li>
+<li id="fn5"><p>This is far more likely to happen as a result of standard government changing a site and forgetting to update the link rather than intentionally making the manual unavailable.<a href="index.html#fnref5" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

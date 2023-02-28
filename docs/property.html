@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 8 Property and Window Property Segment | National Incident-Based Reporting System (NIBRS) Data: A Practitioner’s Guide</title>
   <meta name="description" content="This is a comprehensive guide to using the FBI’s National Incident-Based Reporting System (NIBRS) Data, an incident-level dataset which provides detailed information on every crime reported to the police, including victim and offender traits and characteristics of the crime." />
-  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 8 Property and Window Property Segment | National Incident-Based Reporting System (NIBRS) Data: A Practitioner’s Guide" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Jacob Kaplan" />
 
 
-<meta name="date" content="2022-08-23" />
+<meta name="date" content="2023-02-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -101,7 +101,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -114,7 +114,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -1049,7 +1049,7 @@ Figure 8.3: The incident-level distribution of the value of property stolen. As 
 <div id="date-property-was-recovered" class="section level3 hasAnchor" number="8.1.4">
 <h3><span class="header-section-number">8.1.4</span> Date property was recovered<a href="property.html#date-property-was-recovered" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>This segment tells us both when the incident happened and, for stolen property, when the item was recovered. We can use this to look at how long it generally takes for property to be recovered (though most property stolen is never recovered). Figure <a href="property.html#fig:propertyDaysUntilRecovered">8.4</a> shows the number of days it takes for property to be recovered. Though this data gives us the exact date, allowing for the precise number of days from property loss to recovery, this graph groups days greater than nine days to simplify the graph. The maximum number of days in the 2019 NIBRS data is 450 days so showing all days would be a rather unhelpful graph.</p>
-<p>The majority - 60.8% - of property lost is recovered on the same day, which is shown as zero days. We saw in Figure <a href="arrestee.html#fig:arrestsDaysUntilArrest">7.1</a> that the vast majority of arrests happen on the same day as the incident so it makes sense the most property would too.<a href="#fn51" class="footnote-ref" id="fnref51"><sup>51</sup></a> A smaller and smaller share of property is recovered as the number of days from the incident increase, a trend also found in the time to arrest graph. The lesson here seems to be that if you’re a victim of a crime and had something taken, unless it’s recovered very quickly it’s unlikely to be recovered at all.</p>
+<p>The majority - 60.8% - of property lost is recovered on the same day, which is shown as zero days. We saw in Figure <a href="arrestee.html#fig:arrestsDaysUntilArrest">7.1</a> that the vast majority of arrests happen on the same day as the incident so it makes sense the most property would too.<a href="#fn49" class="footnote-ref" id="fnref49"><sup>49</sup></a> A smaller and smaller share of property is recovered as the number of days from the incident increase, a trend also found in the time to arrest graph. The lesson here seems to be that if you’re a victim of a crime and had something taken, unless it’s recovered very quickly it’s unlikely to be recovered at all.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:propertyDaysUntilRecovered"></span>
 <img src="property_files/figure-html/propertyDaysUntilRecovered-1.png" alt="The distribution of the number of days from the incident to the property recovered date. In 2019 the maximum days from incident to arrest was 450 days. Zero days means that the arrest occurred on the same day as the incident. " width="90%" />
 <p class="caption">
@@ -1254,12 +1254,10 @@ Figure 8.5: For drugs seized that are measured in grams, this figure shows the d
 
 
 
-
-
 <div class="footnotes">
 <hr />
-<ol start="51">
-<li id="fn51"><p>I’d expect most property to be recovered on the arrestee’s body.<a href="property.html#fnref51" class="footnote-back">↩︎</a></p></li>
+<ol start="49">
+<li id="fn49"><p>I’d expect most property to be recovered on the arrestee’s body.<a href="property.html#fnref49" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

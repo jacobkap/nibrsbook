@@ -3,7 +3,7 @@ bookdown::gitbook:
   includes:
     in_header: [ga_script.html]
   config:
-    toc:
+    toc:    
       collapse: section
       before: |
         <li><a href="./">National Incident-Based Reporting System (NIBRS) Data: A Practitioner's Guide</a></li>
